@@ -37,6 +37,9 @@ dependencies:
   flutter_svg: ^2.2.3
   google_fonts: ^7.1.0
   audioplayers: ^6.5.1
+  screen_brightness: ^2.1.7
+  video_player: ^2.10.1
+  chewie: ^1.13.0
 
 dev_dependencies:
   flutter_test:

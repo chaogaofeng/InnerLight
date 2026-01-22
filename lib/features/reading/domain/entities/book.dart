@@ -25,6 +25,8 @@ class Book {
   final int progress; // 0-100
   final List<Chapter> chapters;
   final int readCount;
+  final String? audioUrl;
+  final String? videoUrl;
 
   const Book({
     required this.id,
@@ -37,5 +39,7 @@ class Book {
     required this.progress,
     required this.chapters,
     required this.readCount,
+    this.audioUrl,
+    this.videoUrl,
   });
 }

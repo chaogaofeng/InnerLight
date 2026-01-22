@@ -152,7 +152,7 @@ class _ReminderPageState extends State<ReminderPage> {
                           _isEnabled = value;
                         });
                       },
-                      activeColor: const Color(0xFF8B5A2B),
+                      activeThumbColor: const Color(0xFF8B5A2B),
                       activeTrackColor: const Color(
                         0xFF8B5A2B,
                       ).withValues(alpha: 0.2),

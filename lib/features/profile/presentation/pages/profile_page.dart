@@ -54,6 +54,7 @@ class _ProfilePageState extends State<ProfilePage> {
         action: IconButton(
           icon: const Icon(Icons.settings_outlined, color: AppColors.zenInk),
           onPressed: () async {
+            final scaffoldMessenger = ScaffoldMessenger.of(context);
             final result = await Navigator.push(
               context,
               MaterialPageRoute(
@@ -65,16 +66,15 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             );
 
-            if (!mounted) return;
-
             if (result != null && result is Map<String, dynamic>) {
+              if (!mounted) return;
               setState(() {
                 _userProfile['name'] = result['name'];
                 _userProfile['title'] = result['title'];
                 _userProfile['avatarColor'] = result['avatarColor'];
               });
 
-              ScaffoldMessenger.of(context).showSnackBar(
+              scaffoldMessenger.showSnackBar(
                 SnackBar(
                   content: const Text('个人设置已更新'),
                   backgroundColor: AppColors.zenBrown,

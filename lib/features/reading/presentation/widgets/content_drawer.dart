@@ -8,6 +8,8 @@ class ContentDrawer extends StatelessWidget {
   final String? subtitle;
   final IconData icon;
   final Widget child;
+  final double heightFactor;
+  final bool scrollable;
 
   const ContentDrawer({
     super.key,
@@ -15,6 +17,8 @@ class ContentDrawer extends StatelessWidget {
     this.subtitle,
     required this.icon,
     required this.child,
+    this.heightFactor = 0.75,
+    this.scrollable = true,
   });
 
   static Future<T?> show<T>({
@@ -23,6 +27,8 @@ class ContentDrawer extends StatelessWidget {
     String? subtitle,
     required IconData icon,
     required Widget child,
+    double heightFactor = 0.75,
+    bool scrollable = true,
   }) {
     return showModalBottomSheet<T>(
       context: context,
@@ -32,6 +38,8 @@ class ContentDrawer extends StatelessWidget {
         title: title,
         subtitle: subtitle,
         icon: icon,
+        heightFactor: heightFactor,
+        scrollable: scrollable,
         child: child,
       ),
     );
@@ -40,7 +48,7 @@ class ContentDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.75,
+      height: MediaQuery.of(context).size.height * heightFactor,
       decoration: const BoxDecoration(
         color: AppColors.zenBg,
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
@@ -98,10 +106,12 @@ class ContentDrawer extends StatelessWidget {
 
           // Content
           Expanded(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(20),
-              child: child,
-            ),
+            child: scrollable
+                ? SingleChildScrollView(
+                    padding: const EdgeInsets.all(20),
+                    child: child,
+                  )
+                : Padding(padding: const EdgeInsets.all(20), child: child),
           ),
         ],
       ),

@@ -130,4 +130,35 @@ final List<Book> mockBooks = [
       const Chapter(id: 'c1', title: '卷一', contentOriginal: '如是我闻...'),
     ],
   ),
+  // 楞伽经
+  Book(
+    id: 'lankavatara-sutra',
+    title: '《楞伽经》',
+    author: '唐 / 实叉难陀译',
+    coverStyle: 'dark',
+    desc: '万法唯心所现。',
+    category: '经',
+    level: 'advanced',
+    progress: 10,
+    readCount: 2100,
+    chapters: [
+      const Chapter(id: 'c1', title: '卷一', contentOriginal: '如是我闻...'),
+    ],
+  ),
+
+  // 维摩诘经
+  Book(
+    id: 'vimalakirti-sutra',
+    title: '《维摩诘经》',
+    author: '姚秦 / 鸠摩罗什译',
+    coverStyle: 'gold',
+    desc: '心净则佛土净。',
+    category: '经',
+    level: 'core',
+    progress: 20,
+    readCount: 7500,
+    chapters: [
+      const Chapter(id: 'c1', title: '佛国品', contentOriginal: '如是我闻...'),
+    ],
+  ),
 ];
